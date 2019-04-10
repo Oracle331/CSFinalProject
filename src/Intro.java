@@ -20,7 +20,7 @@ import javafx.util.Duration;
 
 import java.util.Timer;
 
-import static javafx.geometry.Pos.BOTTOM_CENTER;
+import static javafx.geometry.Pos.*;
 
 public class Intro extends Application {
     public Stage title = new Stage();
@@ -41,7 +41,7 @@ public class Intro extends Application {
         title = primaryStage;
 
         Scene background = new Scene(window, 1200, 800);
-        StackPane pos = new StackPane();
+
         Image image = new Image("space.jpg");
 
         window.getChildren().add(new ImageView(image));
@@ -57,7 +57,10 @@ public class Intro extends Application {
         primaryStage.setScene(background);
         primaryStage.show();
         title.show();
+
         Image start = new Image(getClass().getResourceAsStream("start.png"));
+
+        StackPane pos = new StackPane();
         Button startButton = new Button("",new ImageView(start));
         pos.setAlignment(Pos.BOTTOM_CENTER);
 
@@ -82,11 +85,5 @@ public class Intro extends Application {
             }
 
         });
-
-
-
-
-
-
     }
 }
