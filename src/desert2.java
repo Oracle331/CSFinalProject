@@ -1,9 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
-import java.util.Timer;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -22,12 +16,16 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class desert1 extends Application {
+import java.util.Timer;
+
+public class desert2 extends Application{
+
+
     private Stage title = new Stage();
     private StackPane window = new StackPane();
     private Text logo = new Text("There's nothing here \nbut the vast empty desert");
 
-    public desert1() {
+    public desert2() {
     }
 
     public static void main(String[] args) {
@@ -35,18 +33,18 @@ public class desert1 extends Application {
     }
 
     public void start(final Stage primaryStage) {
-        final jawaCont init = new jawaCont();
+        Raiders raid = new Raiders();
         new Timer();
         title = primaryStage;
         Scene background = new Scene(this.window, 1200.0D, 800.0D);
-        ImageView i = new ImageView("desert.png");
+        ImageView i = new ImageView("des1.png");
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         window.getChildren().add(i);
         logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40.0D));
         logo.setFill(Color.DARKBLUE);
         logo.setTextAlignment(TextAlignment.CENTER);
-        window.getChildren().add(logo);
+        window.getChildren().add(this.logo);
         title.setTitle("Stage 1");
         primaryStage.setScene(background);
         primaryStage.show();
@@ -65,14 +63,14 @@ public class desert1 extends Application {
         window.getChildren().add(but);
         but1.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                FadeTransition ft = new FadeTransition(Duration.millis(2000.0D), desert1.this.logo);
+                FadeTransition ft = new FadeTransition(Duration.millis(2000.0D), desert2.this.logo);
                 ft.setFromValue(1.0D);
                 ft.setToValue(0.0D);
                 ft.setCycleCount(1);
                 ft.play();
                 but1.setDisable(true);
                 but1.setVisible(false);
-                init.start(primaryStage);
+                raid.start(primaryStage);
             }
         });
     }
