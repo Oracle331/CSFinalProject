@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,11 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CreateACharacter extends Application {
 
+    public Inventory inv = new Inventory();
 
     public static void CreateACharacter(){
 
@@ -26,6 +32,7 @@ public class CreateACharacter extends Application {
         HBox characters = new HBox();
         Image image = new Image("space.jpg");
         StackPane menu = new StackPane();
+        VBox text = new VBox();
 
 
 
@@ -38,8 +45,11 @@ public class CreateACharacter extends Application {
         Image s = new Image(getClass().getResourceAsStream("han.gif"));
 
         Text choose = new Text("Choose your character:");
-        choose.setStyle("-fx-text-fill: #ffffff");
-        menu.getChildren().add(choose);
+        choose.setFont(Font.font("Courier New", 75));
+        choose.setFill(Color.YELLOW);
+        text.getChildren().add(choose);
+        text.setAlignment(Pos.TOP_CENTER);
+        menu.getChildren().add(text);
 
         Button droid = new Button("",new ImageView(d));
         Button shoot = new Button("",new ImageView(s));
@@ -49,9 +59,6 @@ public class CreateACharacter extends Application {
 
         droid.setMaxSize(320,300);
         droid.setMinSize(320,300);
-//        droid.setPrefSize(100,100);
-//        shoot.setPrefSize(100,100);
-//        jedi.setPrefSize(100,100);
         shoot.setMaxSize(320,300);
         shoot.setMinSize(320,300);
         jedi.setMinSize(320,300);
@@ -61,12 +68,32 @@ public class CreateACharacter extends Application {
         shoot.setStyle("-fx-background-color: transparent; ");
         jedi.setStyle("-fx-background-color: transparent; ");
 
-//        droid.setAlignment(Pos.BOTTOM_LEFT);
-//        shoot.setAlignment(Pos.BOTTOM_CENTER);
-//        jedi.setAlignment(Pos.BOTTOM_RIGHT);
+        droid.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                inv.Inventory("d");
+                inv.add("blaster");
 
-        //characters.autosize();
-        //characters.getChildren().add(bg);
+            }
+        });
+        shoot.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                inv.Inventory("s");
+                inv.add("blaster");
+
+            }
+        });
+        jedi.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                inv.Inventory("j");
+                inv.add("saber");
+
+            }
+        });
+
+
 
         characters.getChildren().add(droid);
         characters.getChildren().add(jedi);
