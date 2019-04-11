@@ -1,6 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
+// Introducing Tatooine to the player
 //
 
 import java.util.Timer;
@@ -35,9 +33,10 @@ public class Tatooine extends Application {
     }
 
     public void start(final Stage primaryStage) {
-        new Timer();
-        final desert1 des = new desert1();
-        final approachJawa init = new approachJawa();
+
+        desert1 des = new desert1();
+        approachJawa init = new approachJawa();
+
         title = primaryStage;
         Scene background = new Scene(this.window, 1200, 800);
         ImageView i = new ImageView("tatoonie1.png");
@@ -48,7 +47,7 @@ public class Tatooine extends Application {
         logo.setFill(Color.WHITE);
         logo.setTextAlignment(TextAlignment.CENTER);
         window.getChildren().add(this.logo);
-        title.setTitle("Stage 1");
+        title.setTitle("Star Wars: Text Adventure - Tatooine");
         primaryStage.setScene(background);
         primaryStage.show();
         title.show();

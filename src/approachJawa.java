@@ -1,6 +1,6 @@
 //
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
+// Initial interaction with first NPC, Jawa's
+//
 //
 
 import javafx.animation.FadeTransition;
@@ -25,8 +25,8 @@ import javafx.util.Duration;
 public class approachJawa extends Application {
     private Stage title = new Stage();
     private StackPane window = new StackPane();
-    private Text logo = new Text("\"Utinni! Utinni\" \n The Jawa is \nsurprised to see you!");
-    jawaCont init = new jawaCont();
+    private Text dialogue = new Text("\"Utinni! Utinni\" \n The Jawa is \nsurprised to see you!");
+    jawaCont nextStage = new jawaCont();
 
     public approachJawa() {
     }
@@ -36,45 +36,54 @@ public class approachJawa extends Application {
     }
 
     public void start(final Stage primaryStage) {
-        this.title = primaryStage;
-        Scene background = new Scene(this.window, 1200.0D, 800.0D);
+        Inventory inv = new Inventory();
+        title = primaryStage;
+        Scene background = new Scene(window, 1200, 800);
+
         ImageView i = new ImageView("tatoonie1.png");
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         Image jawa = new Image("jawa1.png");
-        this.window.getChildren().add(i);
-        HBox j = new HBox();
-        j.getChildren().add(new ImageView(jawa));
-        this.window.getChildren().add(j);
-        j.setAlignment(Pos.CENTER_RIGHT);
-        this.logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 50.0D));
-        this.logo.setFill(Color.WHITE);
-        this.logo.setTextAlignment(TextAlignment.CENTER);
-        this.window.getChildren().add(this.logo);
-        this.title.setTitle("Approaching Jawa");
+        window.getChildren().add(i);
+
+        HBox jPos = new HBox();
+        jPos.getChildren().add(new ImageView(jawa));
+        window.getChildren().add(jPos);
+        jPos.setAlignment(Pos.CENTER_RIGHT);
+
+        dialogue.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 100));
+        dialogue.setFill(Color.WHITE);
+        dialogue.setTextAlignment(TextAlignment.CENTER);
+        window.getChildren().add(dialogue);
+
+        title.setTitle("Star Wars: Text Adventure - Tatooine");
         primaryStage.setScene(background);
         primaryStage.show();
-        this.title.show();
-        final Button but1 = new Button("Continue");
-        but1.setStyle("-fx-background-color: #a50000; ");
-        but1.setFont(Font.font("Courier New", 40.0D));
-        but1.setStyle("-fx-text-fill: #a50000");
+        title.show();
+
+        Button contBut = new Button("Continue");
+        contBut.setStyle("-fx-background-color: #a50000; ");
+        contBut.setFont(Font.font("Courier New", 40));
+        contBut.setStyle("-fx-text-fill: #a50000");
+
         HBox but = new HBox();
-        but.setSpacing(125.0D);
+        but.setSpacing(125);
         but.setAlignment(Pos.BOTTOM_CENTER);
-        but.getChildren().add(but1);
-        this.window.getChildren().add(but);
-        but1.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                FadeTransition ft = new FadeTransition(Duration.millis(2000.0D), approachJawa.this.logo);
-                ft.setFromValue(1.0D);
-                ft.setToValue(0.0D);
-                ft.setCycleCount(1);
-                ft.play();
-                but1.setDisable(true);
-                but1.setVisible(false);
-                approachJawa.this.init.start(primaryStage);
-            }
+        but.getChildren().add(contBut);
+        window.getChildren().add(but);
+
+        contBut.setOnAction(e ->  {
+            Text dialogueOne = new Text("\"Etee uwanna waa.\"");
+            dialogue.setVisible(false);
+            window.getChildren().add(dialogueOne);
+            //if (inv.check("d"))
+
+            //else
+           //     System.out.println("They gesture towards some junk on the sand crawler, implying they want to trade.");
+            contBut.setDisable(true);
+            contBut.setVisible(false);
+            nextStage.start(primaryStage);
         });
     }
+
 }

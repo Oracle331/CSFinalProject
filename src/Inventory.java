@@ -8,9 +8,11 @@ public class Inventory {
     public void Inventory(String characterSelection){
         character = characterSelection;
     }
-    public String check(String item){
+    public boolean check(String item){
 
-        return "";
+        if(items.contains(item))
+            return true;
+        return false;
     }
     public void add(String item){
         items.add(item);

@@ -8,6 +8,7 @@ import java.util.TimerTask;
 
 public class BattleArena extends Application {
 
+    public int enemyHealth, charHealth;
 
     public static void main(String[] args) {
         launch(args);
@@ -21,19 +22,21 @@ public class BattleArena extends Application {
         Timer timer = new Timer();
 
 
-        Scene s = new Scene(root, 1920, 980);
+        Scene s = new Scene(root, 1200, 800);
         primaryStage.setTitle("Game Test");
+
+
         primaryStage.setScene(s);
         primaryStage.show();
         //Cast the new object from getInstance in the GameObject Class
         //Add the object into the pane
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-
-            }
-        }, 500, 60);
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        }, 500, 60);
 
 
         primaryStage.requestFocus();

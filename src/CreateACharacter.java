@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 public class CreateACharacter extends Application {
 
     public Inventory inv = new Inventory();
+    private Tatooine nextScene = new Tatooine();
 
     public static void CreateACharacter(){
 
@@ -75,7 +76,7 @@ public class CreateACharacter extends Application {
         droid.setOnAction(e -> {
             inv.Inventory("d");
             inv.add("blaster");
-
+            nextScene.start(primaryStage);
             //Add droid object.
             GameObject.getInstance();
 
@@ -87,11 +88,13 @@ public class CreateACharacter extends Application {
         shoot.setOnAction(e -> {
             inv.Inventory("s");
             inv.add("blaster");
+            nextScene.start(primaryStage);
 
         });
         jedi.setOnAction(e -> {
             inv.Inventory("j");
             inv.add("saber");
+            nextScene.start(primaryStage);
 
         });
 

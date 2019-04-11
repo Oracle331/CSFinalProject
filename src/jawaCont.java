@@ -1,6 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
+// After the mission with the jawa's is accepted
 //
 
 import java.util.Timer;
@@ -38,11 +36,11 @@ public class jawaCont extends Application {
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         this.window.getChildren().add(i);
-        this.logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40.0D));
+        this.logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 100));
         this.logo.setFill(Color.WHITE);
         this.logo.setTextAlignment(TextAlignment.CENTER);
         this.window.getChildren().add(this.logo);
-        this.title.setTitle("Stage 1");
+        this.title.setTitle("Star Wars: Text Adventure - Tatooine");
         primaryStage.setScene(background);
         primaryStage.show();
         this.title.show();

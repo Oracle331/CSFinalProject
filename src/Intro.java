@@ -80,6 +80,7 @@ public class Intro extends Application {
             });
             ft.play();
             startButton.setDisable(true);
+            startButton.setVisible(false);
             //timer.schedule(() -> init.start(primaryStage), 2*60*1000);
 
 
