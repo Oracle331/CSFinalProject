@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -68,6 +69,12 @@ public class CreateACharacter extends Application {
         shoot.setStyle("-fx-background-color: transparent; ");
         jedi.setStyle("-fx-background-color: transparent; ");
 
+        droid.setOnMouseClicked(e ->{
+
+
+
+        });
+
         droid.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -95,6 +102,7 @@ public class CreateACharacter extends Application {
 
 
 
+
         characters.getChildren().add(droid);
         characters.getChildren().add(jedi);
         characters.getChildren().add(shoot);
@@ -105,5 +113,7 @@ public class CreateACharacter extends Application {
 
         primaryStage.setScene(charSelect);
         primaryStage.show(); // for testing
+
+        primaryStage.requestFocus();
     }
 }
