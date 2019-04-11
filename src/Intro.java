@@ -63,24 +63,32 @@ public class Intro extends Application {
         pos.getChildren().add(startButton);
         window.getChildren().add(pos);
 
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                FadeTransition ft = new FadeTransition(Duration.millis(2000), logo);
+        startButton.setOnAction(event -> {
+            FadeTransition ft = new FadeTransition(Duration.seconds(1), logo);
 
-                ft.setFromValue(1);
-                ft.setToValue(0);
-                ft.setCycleCount(1);
-                ft.play();
-                startButton.setDisable(true);
-                startButton.setVisible(false);
-                //timer.schedule(() -> init.start(primaryStage), 2*60*1000);
+            ft.setFromValue(1);
+            ft.setToValue(0);
+            ft.setCycleCount(1);
 
-                init.start(primaryStage);
-                timer.cancel();
 
-            }
+            ft.setOnFinished(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    startButton.setVisible(false);
+                    init.start(primaryStage);
+                }
+            });
+            ft.play();
+            startButton.setDisable(true);
+            //timer.schedule(() -> init.start(primaryStage), 2*60*1000);
+
+
+            //init.start(primaryStage);
+
+            timer.cancel();
+
         });
+
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
