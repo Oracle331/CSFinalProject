@@ -34,7 +34,7 @@ public class jawaCont extends Application {
         new Timer();
         this.title = primaryStage;
         Scene background = new Scene(this.window, 1200.0D, 800.0D);
-        ImageView i = new ImageView("tatPNG.jpg");
+        ImageView i = new ImageView("tatPNG.png");
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         this.window.getChildren().add(i);
