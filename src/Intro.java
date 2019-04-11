@@ -1,16 +1,13 @@
-
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -20,8 +17,6 @@ import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 import java.util.Timer;
-
-import static javafx.geometry.Pos.*;
 
 public class Intro extends Application {
     public Stage title = new Stage();
@@ -82,6 +77,7 @@ public class Intro extends Application {
                 //timer.schedule(() -> init.start(primaryStage), 2*60*1000);
 
                 init.start(primaryStage);
+                timer.cancel();
 
             }
         });
