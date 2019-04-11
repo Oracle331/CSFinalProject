@@ -1,14 +1,10 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,6 +26,7 @@ public class CreateACharacter extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         HBox characters = new HBox();
         Image image = new Image("space.jpg");
         StackPane menu = new StackPane();
@@ -75,29 +72,27 @@ public class CreateACharacter extends Application {
 
         });
 
-        droid.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                inv.Inventory("d");
-                inv.add("blaster");
+        droid.setOnAction(e -> {
+            inv.Inventory("d");
+            inv.add("blaster");
 
-            }
+            //Add droid object.
+            GameObject.getInstance();
+
+            //set its properties.
+            GameObject.setProperties();
+
+
         });
-        shoot.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                inv.Inventory("s");
-                inv.add("blaster");
+        shoot.setOnAction(e -> {
+            inv.Inventory("s");
+            inv.add("blaster");
 
-            }
         });
-        jedi.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                inv.Inventory("j");
-                inv.add("saber");
+        jedi.setOnAction(e -> {
+            inv.Inventory("j");
+            inv.add("saber");
 
-            }
         });
 
 
