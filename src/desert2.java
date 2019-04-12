@@ -41,11 +41,11 @@ public class desert2 extends Application{
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         window.getChildren().add(i);
-        logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40.0D));
+        logo.setFont(Font.font("Courier New", 40));
         logo.setFill(Color.DARKBLUE);
         logo.setTextAlignment(TextAlignment.CENTER);
         window.getChildren().add(this.logo);
-        title.setTitle("Stage 1");
+        title.setTitle("Star Wars: Text Adventure - Tatooine");
         primaryStage.setScene(background);
         primaryStage.show();
         title.show();

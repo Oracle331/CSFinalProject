@@ -45,11 +45,17 @@ public class jawaCont extends Application {
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         window.getChildren().add(i);
-        logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40.0D));
+
+        StackPane pos = new StackPane();
+
+        logo.setFont(Font.font("Courier New", 40));
         logo.setFill(Color.WHITE);
         logo.setTextAlignment(TextAlignment.CENTER);
-        window.getChildren().add(logo);
-        title.setTitle("Stage 1");
+        pos.getChildren().add(logo);
+        pos.setAlignment(Pos.TOP_CENTER);
+
+        window.getChildren().add(pos);
+        title.setTitle("Star Wars: Text Adventure - Tatooine");
         primaryStage.setScene(background);
         primaryStage.show();
         title.show();

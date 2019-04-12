@@ -29,7 +29,9 @@ public class CreateACharacter extends Application {
     public void start(Stage primaryStage) {
 
         HBox characters = new HBox();
+
         Image image = new Image("space.jpg");
+
         StackPane menu = new StackPane();
         VBox text = new VBox();
 

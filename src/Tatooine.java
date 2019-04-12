@@ -23,7 +23,7 @@ import javafx.util.Duration;
 public class Tatooine extends Application {
     private Stage title = new Stage();
     private StackPane window = new StackPane();
-    private Text logo = new Text("You're surrounded by an endless desert.\nYou notice the tracks from a sandcrawler blow into the wind \nas a group of Jawa's move out from behind a rock.\n What would you like to do?");
+    private Text logo = new Text("You're surrounded by an endless desert.\nYou notice the tracks from a \nsandcrawler blow into the wind as a group \nof Jawa's move out from behind a rock.\n What would you like to do?");
 
     public Tatooine() {
     }
@@ -43,7 +43,7 @@ public class Tatooine extends Application {
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
         window.getChildren().add(i);
-        logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40));
+        logo.setFont(Font.font("Courier New", 40));
         logo.setFill(Color.WHITE);
         logo.setTextAlignment(TextAlignment.CENTER);
         window.getChildren().add(this.logo);
@@ -51,49 +51,59 @@ public class Tatooine extends Application {
         primaryStage.setScene(background);
         primaryStage.show();
         title.show();
-        new StackPane();
-        new StackPane();
-        new StackPane();
-        final Button but1 = new Button("Approach \nJawas");
-        Button but2 = new Button("Attack \nJawas");
-        final Button but3 = new Button("Run \naway");
-        but1.setStyle("-fx-background-color: #a50000; ");
-        but1.setFont(Font.font("Courier New", 40));
-        but2.setFont(Font.font("Courier New", 40));
-        but3.setFont(Font.font("Courier New", 40));
-        but2.setStyle("-fx-background-color: #a50000; ");
-        but3.setStyle("-fx-background-color: #a50000; ");
-        but1.setStyle("-fx-text-fill: #a50000");
-        but2.setStyle("-fx-text-fill: #a50000");
-        but3.setStyle("-fx-text-fill: #a50000");
+
+        Button approach = new Button("Approach \nJawas");
+        Button attack = new Button("Attack \nJawas");
+        Button run = new Button("Run \naway");
+
+        approach.setStyle("-fx-background-color: #a50000; ");
+        approach.setFont(Font.font("Courier New", 40));
+        attack.setFont(Font.font("Courier New", 40));
+        run.setFont(Font.font("Courier New", 40));
+        attack.setStyle("-fx-background-color: #a50000; ");
+        run.setStyle("-fx-background-color: #a50000; ");
+        approach.setStyle("-fx-text-fill: #a50000");
+        attack.setStyle("-fx-text-fill: #a50000");
+        run.setStyle("-fx-text-fill: #a50000");
+
         HBox but = new HBox();
         but.setSpacing(125);
         but.setAlignment(Pos.BOTTOM_CENTER);
-        but.getChildren().add(but1);
-        but.getChildren().add(but2);
-        but.getChildren().add(but3);
+
+        but.getChildren().add(approach);
+        but.getChildren().add(attack);
+        but.getChildren().add(run);
+
         window.getChildren().add(but);
-        but1.setOnAction(e -> {
+        approach.setOnAction(e -> {
             FadeTransition ft = new FadeTransition(Duration.millis(2000), logo);
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setCycleCount(1);
             ft.play();
-            but1.setDisable(true);
-            but1.setVisible(false);
+            approach.setDisable(true);
+            approach.setVisible(false);
             init.start(primaryStage);
         });
-        but3.setOnAction(new EventHandler<ActionEvent>() {
+        run.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 FadeTransition ft = new FadeTransition(Duration.millis(2000), logo);
                 ft.setFromValue(1);
                 ft.setToValue(0);
                 ft.setCycleCount(1);
                 ft.play();
-                but3.setDisable(true);
-                but3.setVisible(false);
-                des.start(primaryStage);
+                run.setDisable(true);
+                run.setVisible(false);
+                init.start(primaryStage); // for demo
+                //des.start(primaryStage);
             }
+        });
+        attack.setOnAction(e -> {
+            BattleArena fight = new BattleArena();
+            fight.setEnemy("Jawa");
+            init.attack(true);
+            init.start(primaryStage);
+            //fight.start(primaryStage);
         });
     }
 }

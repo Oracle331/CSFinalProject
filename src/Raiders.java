@@ -25,7 +25,7 @@ public class Raiders extends Application{
 
         private Stage title = new Stage();
         private StackPane window = new StackPane();
-        private Text logo = new Text("As you approach you see a group \nof tuskan raiders surrounding a few humans \n with their weapons drawn. \nThe humans appear to be in danger.");
+        private Text logo = new Text("As you approach you see a group\nof tuskan raiders surrounding a few\nhumans  with their weapons drawn.\nThe humans appear to be in danger.");
     public Raiders(){}
 
 
@@ -44,11 +44,11 @@ public class Raiders extends Application{
             i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
             i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
             window.getChildren().add(i);
-            logo.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 40.0D));
+            logo.setFont(Font.font("Courier New", 35));
             logo.setFill(Color.WHITE);
             logo.setTextAlignment(TextAlignment.CENTER);
             window.getChildren().add(this.logo);
-            title.setTitle("Stage 1");
+            title.setTitle("Star Wars: Text Adventure - Tatooine");
 
             Image jawa = new Image("tusken.png");
 

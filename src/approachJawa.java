@@ -25,7 +25,7 @@ import javafx.util.Duration;
 public class approachJawa extends Application {
     private Stage title = new Stage();
     private StackPane window = new StackPane();
-    private Text dialogue = new Text("\"Utinni! Utinni\" \n The Jawa is \nsurprised to see you!");
+    private Text dialogue;
     jawaCont nextStage = new jawaCont();
 
     public approachJawa() {
@@ -34,8 +34,15 @@ public class approachJawa extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    public void attack(boolean attack){
+        if(attack){
+            dialogue = new Text("\"Ny shootogawa!\"\nThe Jawa are scared");
+        }
+    }
 
     public void start(final Stage primaryStage) {
+        if(dialogue == null)
+            dialogue  = new Text("\"Utinni! Utinni\" \n The Jawa is \nsurprised to see you!");
         Inventory inv = new Inventory();
         title = primaryStage;
         Scene background = new Scene(window, 1200, 800);
@@ -43,15 +50,15 @@ public class approachJawa extends Application {
         ImageView i = new ImageView("tatoonie1.png");
         i.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth());
         i.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight());
-        Image jawa = new Image("jawa1.png");
         window.getChildren().add(i);
 
+        Image jawa = new Image("jawa1.png");
         HBox jPos = new HBox();
         jPos.getChildren().add(new ImageView(jawa));
         window.getChildren().add(jPos);
         jPos.setAlignment(Pos.CENTER_RIGHT);
 
-        dialogue.setFont(Font.loadFont("file:src/Roboto-Regular.TTF", 100));
+        dialogue.setFont(Font.font("Courier New", 40));
         dialogue.setFill(Color.WHITE);
         dialogue.setTextAlignment(TextAlignment.CENTER);
         window.getChildren().add(dialogue);
